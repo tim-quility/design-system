@@ -26,13 +26,15 @@ export interface AlertsProps {
   icon?: ReactNode;
 
   /**
-   * Action element (e.g., Button)
+   * Action element (e.g., Button text).
+   * Styles are enforced by the component to look like an underlined link.
    * Only rendered if type is 'actionable'
    */
   action?: ReactNode;
 
   /**
-   * Icon element for the dismiss button
+   * Icon element for the dismiss button.
+   * Defaults to a 12x12 outlined box if passed via Storybook.
    */
   dismissIcon?: ReactNode;
 
@@ -92,18 +94,18 @@ export const Alerts = ({
                 <div className="ds-alert__interactive-group">
                     {/* Action Button */}
                     {type === 'actionable' && action && (
-                        <div className="ds-alert__action-slot">
-                        {action}
-                        </div>
+                        <button className="ds-alert__action-slot" type="button">
+                            {action}
+                        </button>
                     )}
 
                     {/* Dismiss Button */}
                     {dismissible && (
                         <button 
-                        type="button" 
-                        className="ds-alert__dismiss-slot"
-                        onClick={onDismiss}
-                        aria-label="Dismiss"
+                            className="ds-alert__dismiss-slot"
+                            onClick={onDismiss}
+                            aria-label="Dismiss"
+                            type="button"
                         >
                         {dismissIcon}
                         </button>

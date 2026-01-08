@@ -1,150 +1,153 @@
-/* -------------------------------------------------------------------------
+/* ----------------------------------
    Tokens
-   Mapped strictly from spec "Theming & Tokens"
-------------------------------------------------------------------------- */
+---------------------------------- */
 :root {
-  /* Error */
-  --token-5248-377721: #f8e9e8;
-  --token-5248-377726: #b42318;
-
-  /* Success */
-  --token-5248-377747: #e6efec;
-  --token-5248-377752: #08623c;
-
-  /* Info */
-  --token-47-102915: #e8edf6;
-  --token-47-102920: #1849a9;
-
-  /* Warning */
-  --token-5248-377733: #f8efe6;
-  --token-5248-377739: #934802;
+    /* Semantic Colors */
+    --ds-color-error-bg: #f8e9e8;
+    --ds-color-error-text: #b42318;
+    
+    --ds-color-success-bg: #e6efec;
+    --ds-color-success-text: #08623c;
+    
+    --ds-color-info-bg: #e8edf6;
+    --ds-color-info-text: #1849a9;
+    
+    --ds-color-warning-bg: #f8efe6;
+    --ds-color-warning-text: #934802;
 }
 
-/* -------------------------------------------------------------------------
-   Component Layout
-   Based on "responsive layout rules" and "DOM structure"
-------------------------------------------------------------------------- */
-
+/* ----------------------------------
+   Component Base
+---------------------------------- */
 .ds-alert {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* Aligns content to top if text wraps */
-  box-sizing: border-box;
-  
-  /* Desktop (Default) Rules from Spec */
-  /* Width: Intrinsic / Fixed */
-  width: fit-content; 
-  /* Padding: 11px 14px */
-  padding: 11px 14px;
-  /* Root Gap from DOM Structure (<Device=Desktop ... gap="30px">) */
-  gap: 30px;
-  
-  border-radius: 6px; /* Inferred from spec visuals/commonality */
-  border-width: 1px;
-  border-style: solid;
-  
-  /* Text Color: Inherit per spec */
-  color: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 11px 14px;
+    gap: 16px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* Font Inheritance */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }
 
-/* -------------------------------------------------------------------------
-   Inner Structure
-------------------------------------------------------------------------- */
-
-/* Frame 31742: Icon + Text Wrapper */
-.ds-alert__main {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px; /* "Gap" from Responsive Rules Table applies here */
-  flex: 1;
-}
-
-/* IconSlot */
-.ds-alert__icon-slot {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-
-/* Frame 31736: Content Text */
-.ds-alert__content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px; /* From DOM Structure Frame 31736 */
-}
-
-/* Frame 31739: Interactive Group (Action + Dismiss) */
-.ds-alert__interactive-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px; /* From DOM Structure Frame 31739 */
-}
-
-.ds-alert__action-slot {
-  display: flex;
-  gap: 8px; /* From DOM Structure Button */
-}
-
-/* Frame 31737: Dismiss Slot */
-.ds-alert__dismiss-slot {
-  display: grid;
-  place-items: center;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  /* Gap 44px handled by parent interactive-group or specific spacing if needed, 
-     but flex gap handles spacing between action and dismiss */
-}
-
-/* -------------------------------------------------------------------------
-   Theming (Status)
-------------------------------------------------------------------------- */
-
+/* ----------------------------------
+   Themes (Status)
+---------------------------------- */
 .ds-alert--status-error {
-  background-color: var(--token-5248-377721);
-  border-color: var(--token-5248-377726);
-  color: inherit;
+    background-color: var(--ds-color-error-bg);
+    border-color: var(--ds-color-error-text);
+    color: var(--ds-color-error-text);
 }
 
 .ds-alert--status-success {
-  background-color: var(--token-5248-377747);
-  border-color: var(--token-5248-377752);
-  color: inherit;
+    background-color: var(--ds-color-success-bg);
+    border-color: var(--ds-color-success-text);
+    color: var(--ds-color-success-text);
 }
 
 .ds-alert--status-info {
-  background-color: var(--token-47-102915);
-  border-color: var(--token-47-102920);
-  color: inherit;
+    background-color: var(--ds-color-info-bg);
+    border-color: var(--ds-color-info-text);
+    color: var(--ds-color-info-text);
 }
 
 .ds-alert--status-warning {
-  background-color: var(--token-5248-377733);
-  border-color: var(--token-5248-377739);
-  color: inherit;
+    background-color: var(--ds-color-warning-bg);
+    border-color: var(--ds-color-warning-text);
+    color: var(--ds-color-warning-text);
 }
 
-/* -------------------------------------------------------------------------
-   Responsive Rules
-   Mobile (<768px)
-------------------------------------------------------------------------- */
+/* ----------------------------------
+   Layout Areas
+---------------------------------- */
+.ds-alert__main {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    flex: 1;
+}
 
-@media (max-width: 767.98px) {
-  .ds-alert {
-    /* Mobile Width: Full Width */
+.ds-alert__icon-slot {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    padding-top: 2px; /* Optical alignment */
+}
+
+.ds-alert__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.ds-alert__interactive-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+}
+
+/* ----------------------------------
+   Interactive Elements
+---------------------------------- */
+
+/* Action Button */
+.ds-alert__action-slot {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+    color: inherit; 
+}
+
+.ds-alert__action-slot:hover {
+    opacity: 0.8;
+}
+
+/* Dismiss Button Slot 
+   Updated to match the "Dismiss Button" snippet styles 
+*/
+.ds-alert__dismiss-slot {
+    /* Reset */
+    background: none;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+
+    /* Layout from snippet */
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 6px;
     
-    /* Mobile Padding: 11px 14px (Same as desktop in spec, strictly following table) */
-    padding: 11px 14px;
-    
-    /* Mobile Gap: 16px (Table) */
-    gap: 16px; 
-  }
-  
-  /* On mobile, items often stack or adjust gaps. 
-     Spec table says "Gap: 16px" for mobile. 
-     We apply this to the root flex gap. */
+    /* Ensure fit */
+    height: 100%;
+    width: auto;
+}
+
+.ds-alert__dismiss-slot:hover {
+    opacity: 0.7;
 }
