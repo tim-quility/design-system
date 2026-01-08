@@ -1,0 +1,145 @@
+/* -------------------------------------------------------------------------
+   Tokens
+   Mapped strictly from spec "Theming & Tokens"
+------------------------------------------------------------------------- */
+:root {
+  /* Error */
+  --token-5248-377721: #f8e9e8;
+  --token-5248-377726: #b42318;
+
+  /* Success */
+  --token-5248-377747: #e6efec;
+  --token-5248-377752: #08623c;
+
+  /* Info */
+  --token-47-102915: #e8edf6;
+  --token-47-102920: #1849a9;
+
+  /* Warning */
+  --token-5248-377733: #f8efe6;
+  --token-5248-377739: #934802;
+}
+
+/* -------------------------------------------------------------------------
+   Component Layout
+   Based on "responsive layout rules" and "DOM structure"
+------------------------------------------------------------------------- */
+
+.ds-alert {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  
+  /* Desktop (Default) Rules from Spec */
+  /* Width: Intrinsic / Fixed */
+  width: fit-content; 
+  /* Padding: 11px 14px */
+  padding: 11px 14px;
+  /* Root Gap from DOM Structure (<Device=Desktop ... gap="30px">) */
+  gap: 30px;
+  
+  border-radius: 6px; 
+  border-width: 1px;
+  border-style: solid;
+  
+  /* Text Color: Inherit per spec */
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------
+   Inner Structure
+------------------------------------------------------------------------- */
+
+/* Frame 31742: Icon + Text Wrapper */
+.ds-alert__main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px; /* "Gap" from Responsive Rules Table applies here */
+  flex: 1;
+}
+
+/* IconSlot */
+.ds-alert__icon-slot {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Frame 31736: Content Text */
+.ds-alert__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* From DOM Structure Frame 31736 */
+}
+
+/* Frame 31739: Interactive Group (Action + Dismiss) */
+.ds-alert__interactive-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px; /* From DOM Structure Frame 31739 */
+}
+
+.ds-alert__action-slot {
+  display: flex;
+  gap: 8px; /* From DOM Structure Button */
+}
+
+/* Frame 31737: Dismiss Slot */
+.ds-alert__dismiss-slot {
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  /* Gap 44px handled by parent flex gap or specific spacing if needed */
+}
+
+/* -------------------------------------------------------------------------
+   Theming (Status)
+------------------------------------------------------------------------- */
+
+.ds-alert--status-error {
+  background-color: var(--token-5248-377721);
+  border-color: var(--token-5248-377726);
+  color: inherit;
+}
+
+.ds-alert--status-success {
+  background-color: var(--token-5248-377747);
+  border-color: var(--token-5248-377752);
+  color: inherit;
+}
+
+.ds-alert--status-info {
+  background-color: var(--token-47-102915);
+  border-color: var(--token-47-102920);
+  color: inherit;
+}
+
+.ds-alert--status-warning {
+  background-color: var(--token-5248-377733);
+  border-color: var(--token-5248-377739);
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------
+   Responsive Rules
+   Mobile (<768px)
+------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+  .ds-alert {
+    /* Mobile Width: Full Width */
+    width: 100%;
+    
+    /* Mobile Padding: 11px 14px (Same as desktop in spec) */
+    padding: 11px 14px;
+    
+    /* Mobile Gap: 16px (Table) */
+    gap: 16px; 
+  }
+}
