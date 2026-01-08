@@ -1,0 +1,30 @@
+# Node / pnpm
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+
+# Storybook
+storybook-static/
+
+# Vite
+.vite/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# Env
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
