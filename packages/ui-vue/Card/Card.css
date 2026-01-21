@@ -1,0 +1,126 @@
+/* Card.css */
+
+:root {
+    /* Variables from React snippet */
+    --card-bg: var(--Colors-Background-bg-primary, #ffffff);
+    --card-border: var(--Colors-Border-border-primary, #E4E4E4);
+    --card-text-primary: var(--Colors-Text-text-primary-900, #101828);
+    --card-brand-color: var(--Colors-Brand-800, #005851);
+    --card-font-family: 'Montserrat', sans-serif;
+}
+
+.card-container {
+    width: fit-content;
+    max-width: 100%;
+    height: 100%;
+    padding: 16px;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    overflow: hidden;
+}
+
+.card-container.is-interactive:hover {
+    border-color: var(--card-brand-color);
+    cursor: pointer;
+}
+
+/* --- Header Section --- */
+.card-header {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    min-height: 24px;
+}
+
+.card-title {
+    flex: 1;
+    color: var(--card-text-primary);
+    font-size: 20px;
+    font-family: var(--card-font-family);
+    font-weight: 700;
+    line-height: 26px;
+    word-wrap: break-word;
+
+    /* Text Trim (Modern browsers only) */
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+}
+
+.card-top-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* --- Body Section --- */
+.card-body {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-description {
+    align-self: stretch;
+    color: var(--card-text-primary);
+    font-size: 14px;
+    font-family: var(--card-font-family);
+    font-weight: 500;
+    line-height: 21px;
+
+    /* Handle text overflow gracefully (max 2 lines) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 42px;
+    /* Enforce height consistency */
+}
+
+/* --- Footer Section --- */
+.card-footer {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: auto;
+    /* Pushes footer to bottom if container grows */
+}
+
+.meta-item {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+}
+
+.meta-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.meta-text {
+    color: var(--card-text-primary);
+    font-size: 14px;
+    font-family: var(--card-font-family);
+    font-weight: 500;
+    line-height: 21px;
+    white-space: nowrap;
+}

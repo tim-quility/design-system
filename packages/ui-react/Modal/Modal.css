@@ -1,0 +1,254 @@
+/* --- Design Tokens --- */
+:root {
+  --Colors-Base-white: #FFFFFF;
+  --Colors-Base-black: #000000;
+  --Colors-Neutrals-Black: #000000;
+  --Colors-Neutrals-Neutral-4: #F1F1F1;
+  --Colors-Gray-500: #ADADAD;
+  --Colors-Gray-700: #707070;
+  --Colors-Gray-900: #2F2F2F;
+  --Colors-Brand-500: #005851;
+  --Colors-Error-500: #B42318;
+
+  --Modal-Overlay-Bg: rgba(0, 0, 0, 0.30);
+  --Font-Family: 'Montserrat', sans-serif;
+}
+
+/* --- Overlay --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--Modal-Overlay-Bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 24px;
+  /* Prevents edge touching on small screens */
+  box-sizing: border-box;
+}
+
+/* --- Container --- */
+.modal-container {
+  background: var(--Colors-Base-white);
+  border-radius: 5px;
+  /* Default width per snippet 3 (max-width for responsiveness) */
+  width: 100%;
+  max-width: 695px;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  /* Optional outline from snippet 3 */
+  outline: 2px solid var(--Colors-Neutrals-Neutral-4);
+  outline-offset: -2px;
+}
+
+/* Padded variant for different snippets */
+.modal-container.padding-standard {
+  padding: 24px;
+  gap: 24px;
+}
+
+.modal-container.padding-large {
+  padding: 36px;
+  gap: 32px;
+}
+
+/* --- Header --- */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.modal-title {
+  flex: 1;
+  color: var(--Colors-Neutrals-Black);
+  font-family: var(--Font-Family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
+}
+
+/* Close Button (Styled to match your 24px wrapper / 12px box snippet) */
+.modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The visual box icon from your snippet */
+.modal-close-icon {
+  width: 12px;
+  height: 12px;
+  /* Using SVG background or border to match 'outline' style */
+  border: 2px solid var(--Colors-Gray-700);
+  position: relative;
+}
+
+/* Optional: Make it look like an X inside */
+.modal-close-icon::before,
+.modal-close-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 2px;
+  background-color: var(--Colors-Gray-700);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-close-icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* --- Body --- */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--Font-Family);
+}
+
+.modal-text {
+  color: var(--Colors-Gray-900);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Error/Destructive Text Variation */
+.modal-text.text-destructive {
+  color: var(--Colors-Error-500);
+  font-weight: 700;
+}
+
+/* --- Footer --- */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+/* Alignment Variants */
+.modal-footer.align-right {
+  justify-content: flex-end;
+}
+
+/* Split alignment (Tertiary left, Actions right) */
+.modal-footer.align-split {
+  justify-content: space-between;
+}
+
+/* Grouping for the right side buttons in split mode */
+.modal-footer-group {
+  display: flex;
+  gap: 16px;
+}
+
+/* --- Helper: Radio Item (From Snippet 3) --- */
+.modal-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.modal-radio-label {
+  font-family: var(--Font-Family);
+  font-size: 16px;
+  color: var(--Colors-Base-black);
+}
+
+/* --- Header --- */
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-title {
+  flex: 1 1 0;
+  /* Matches 'flex: 1 1 0' from snippet */
+  color: var(--Colors-Neutrals-Black);
+  font-family: var(--Font-Family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.60px;
+  letter-spacing: 0.10px;
+  word-wrap: break-word;
+}
+
+/* --- Close Button Wrapper --- */
+.modal-close-btn {
+  /* Matches the 24px wrapper structure */
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+
+  /* Reset button defaults if it was a <button> tag, 
+     but using <div> per your snippet makes this optional */
+  background: transparent;
+  border: none;
+}
+
+/* Hover state for better UX */
+.modal-close-btn:hover .modal-close-icon-box {
+  outline-color: var(--Colors-Neutrals-Black);
+}
+
+/* --- The Inner Icon Box --- */
+.modal-close-icon-box {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  font-size: 20px;
+}
+
+.modal-close-icon-box::before,
+.modal-close-icon-box::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  /* Spans the full 12px width */
+  height: 2px;
+  /* Thickness of the X */
+  background-color: var(--Colors-Gray-700);
+}
+
+/* Rotate them to form the X */
+.modal-close-icon-box::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-close-icon-box::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
