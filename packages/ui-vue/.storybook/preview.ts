@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react-vite";
-import '../assets/fonts/fonts.css';
+import type { Preview } from "@storybook/vue3-vite";
+
 const preview: Preview = {
   parameters: {
     controls: {

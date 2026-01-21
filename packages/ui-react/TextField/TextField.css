@@ -1,0 +1,174 @@
+/* --- Variables derived from your snippets --- */
+:root {
+  --Colors-Gray-50: #F8F8F8;
+  --Colors-Gray-200: #E4E4E4;
+  --Colors-Gray-500: #ADADAD;
+  --Colors-Gray-600: #8D8D8D;
+  --Colors-Gray-700: #707070;
+  --Colors-Gray-900: #2F2F2F;
+
+  --Colors-Brand-50: #E6EEEE;
+  --Colors-Brand-500: #005851;
+
+  --Colors-Error-50: #F8E9E8;
+  --Colors-Error-500: #B42318;
+
+  --Colors-Info-500: #1849A9;
+  --Colors-Base-white: #FFFFFF;
+}
+
+/* --- Main Container --- */
+.tf-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* --- Label Row --- */
+.tf-label-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tf-label {
+  color: var(--Colors-Gray-900);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.tf-required {
+  color: var(--Colors-Error-500);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* Info Tooltip Icon */
+.tf-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  cursor: help;
+}
+
+/* --- Input Wrapper (The Box) --- */
+.tf-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  /* Padding on sides, vertical handled by height */
+  background: var(--Colors-Gray-50);
+  border-radius: 6px;
+  outline: 1.5px solid var(--Colors-Gray-200);
+  outline-offset: -1.5px;
+  transition: all 0.2s ease;
+  min-height: 40px;
+  /* Standard height */
+  position: relative;
+}
+
+/* 1. Focused State */
+.tf-wrapper.is-focused {
+  background: var(--Colors-Brand-50);
+  outline-color: var(--Colors-Brand-500);
+}
+
+/* 2. Error State */
+.tf-wrapper.is-error {
+  background: var(--Colors-Error-50);
+  outline-color: var(--Colors-Error-500);
+}
+
+/* 3. Disabled State */
+.tf-wrapper.is-disabled {
+  background: var(--Colors-Gray-200);
+  outline: none;
+  /* Often no border on disabled */
+  cursor: not-allowed;
+}
+
+/* 4. Read Only State */
+.tf-wrapper.is-readonly {
+  background: var(--Colors-Base-white);
+  outline: none;
+  border-bottom: 1.5px solid var(--Colors-Gray-200);
+  border-radius: 6px 6px 0 0;
+  /* Square off bottom */
+}
+
+/* --- The Actual Input Element --- */
+.tf-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--Colors-Gray-900);
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 21px;
+  width: 100%;
+}
+
+.tf-input::placeholder {
+  color: var(--Colors-Gray-600);
+}
+
+/* Text Area specific styles */
+textarea.tf-input {
+  padding: 8px 0;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* --- Prefixes and Suffixes ($ or %) --- */
+.tf-affix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Colors-Gray-500);
+  font-size: 14px;
+  font-weight: 400;
+  width: 14px;
+}
+
+.tf-affix.is-bold {
+  font-weight: 500;
+  /* Usually suffixes like % are bolder */
+}
+
+/* --- Icons (Error, etc) --- */
+.tf-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Hint / Error Text --- */
+.tf-helper-text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--Colors-Gray-700);
+}
+
+.tf-helper-text.is-error {
+  color: var(--Colors-Error-500);
+}
+
+/* --- Decorative Resize Handle (for TextArea) --- */
+.tf-resize-handle {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  pointer-events: none;
+  /* Let clicks pass through to native resize */
+}
