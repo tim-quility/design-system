@@ -1,0 +1,248 @@
+/* ============================================
+   Base Button Styles
+   ============================================ */
+
+.ds-button {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: var(--ds-button-radius, 6px);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+  appearance: none;
+}
+
+/* Focus visible ring */
+.ds-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ds-button-focus-ring);
+}
+
+/* Disabled state */
+.ds-button:disabled,
+.ds-button.ds-button--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Loading state */
+.ds-button.ds-button--loading {
+  cursor: not-allowed;
+}
+
+.ds-button__spinner {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   Hierarchy: Primary
+   ============================================ */
+
+.ds-button--primary {
+  background-color: var(--ds-button-primary-bg, #005851);
+  color: var(--ds-button-primary-text, #ffffff);
+  border-color: transparent;
+}
+
+.ds-button--primary:hover:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-primary-hover-bg, #004641);
+}
+
+.ds-button--primary:active:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-primary-active-bg, #003531);
+}
+
+.ds-button--primary.ds-button--disabled {
+  background-color: var(--ds-button-primary-disabled-bg, #e4e4e4);
+  color: var(--ds-button-primary-disabled-text, #2f2f2f);
+}
+
+/* ============================================
+   Hierarchy: Secondary
+   ============================================ */
+
+.ds-button--secondary {
+  background-color: transparent;
+  color: var(--ds-button-secondary-text, #005851);
+  border-color: var(--ds-button-secondary-border, #005851);
+}
+
+.ds-button--secondary:hover:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-secondary-hover-bg, #f8f8f8);
+}
+
+.ds-button--secondary:active:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-secondary-active-bg, #f1f1f1);
+}
+
+.ds-button--secondary.ds-button--disabled {
+  color: var(--ds-button-secondary-disabled-text, #adadad);
+  border-color: var(--ds-button-secondary-disabled-border, #adadad);
+}
+
+/* ============================================
+   Hierarchy: Tertiary
+   ============================================ */
+
+.ds-button--tertiary {
+  background-color: transparent;
+  text-decoration: underline;
+  color: var(--ds-button-tertiary-text, #005851);
+  border-color: transparent;
+  padding: var(--ds-button-tertiary-padding, 2px 8px);
+}
+
+.ds-button--tertiary:hover:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-tertiary-hover-bg, #f8f8f8);
+}
+
+.ds-button--tertiary:active:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-tertiary-active-bg, #f1f1f1);
+}
+
+.ds-button--tertiary.ds-button--disabled {
+  color: var(--ds-button-tertiary-disabled-text, #adadad);
+}
+
+/* ============================================
+   Intent: Destructive
+   ============================================ */
+
+.ds-button--destructive {
+  background-color: var(--ds-button-destructive-bg, #b42318);
+  color: var(--ds-button-destructive-text, #ffffff);
+  border-color: transparent;
+}
+
+.ds-button--destructive:hover:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-destructive-hover-bg, #901c13);
+}
+
+.ds-button--destructive:active:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-destructive-active-bg, #6c150e);
+}
+
+.ds-button--destructive.ds-button--disabled {
+  background-color: var(--ds-button-destructive-disabled-bg, #e4e4e4);
+  color: var(--ds-button-destructive-disabled-text, #2f2f2f);
+}
+
+/* Secondary + Destructive */
+.ds-button--secondary.ds-button--destructive {
+  background-color: transparent;
+  color: var(--ds-button-secondary-destructive-text, #b42318);
+  border-color: var(--ds-button-secondary-destructive-border, #b42318);
+}
+
+.ds-button--secondary.ds-button--destructive:hover:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-secondary-destructive-hover-bg, #f8e9e8);
+}
+
+.ds-button--secondary.ds-button--destructive:active:not(:disabled):not(.ds-button--disabled) {
+  background-color: var(--ds-button-secondary-destructive-active-bg, #f0d3d1);
+}
+
+/* ============================================
+   Sizes
+   ============================================ */
+
+.ds-button--sm {
+  font-size: 12px;
+  padding: 6px 12px;
+  min-height: 32px;
+  border-radius: var(--ds-button-radius-sm, 4px);
+}
+
+.ds-button--md {
+  font-size: 14px;
+  padding: var(--ds-button-padding-md, 14px 16px);
+  min-height: 40px;
+  border-radius: var(--ds-button-radius, 6px);
+}
+
+.ds-button--lg {
+  font-size: 16px;
+  padding: 16px 20px;
+  min-height: 48px;
+  border-radius: var(--ds-button-radius-lg, 8px);
+}
+
+/* Tertiary size overrides */
+.ds-button--sm.ds-button--tertiary {
+  padding: var(--ds-button-tertiary-padding-sm, 2px 6px);
+}
+
+.ds-button--md.ds-button--tertiary {
+  padding: var(--ds-button-tertiary-padding, 2px 8px);
+}
+
+.ds-button--lg.ds-button--tertiary {
+  padding: var(--ds-button-tertiary-padding-lg, 4px 10px);
+}
+
+/* ============================================
+   Icon Handling
+   ============================================ */
+
+.ds-button--icon-start {
+  flex-direction: row;
+}
+
+.ds-button--icon-end {
+  flex-direction: row-reverse;
+}
+
+.ds-button--icon-only {
+  aspect-ratio: 1 / 1;
+  padding: 0;
+}
+
+.ds-button--sm.ds-button--icon-only {
+  width: 32px;
+  height: 32px;
+}
+
+.ds-button--md.ds-button--icon-only {
+  width: 40px;
+  height: 40px;
+}
+
+.ds-button--lg.ds-button--icon-only {
+  width: 48px;
+  height: 48px;
+}
+
+/* ============================================
+   Loading State
+   ============================================ */
+
+.ds-button--loading {
+  color: transparent;
+}
+
+.ds-button--loading .ds-button__spinner {
+  position: absolute;
+  color: inherit;
+}

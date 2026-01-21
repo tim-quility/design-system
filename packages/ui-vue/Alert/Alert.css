@@ -1,0 +1,139 @@
+/* Alert.css */
+
+:root {
+    /* Define your specific brand colors here */
+    --alert-font-size: 12px;
+    --alert-radius: 8px;
+    /* rounded-lg */
+
+    /* Quility / Info Theme */
+    --c-quility-bg: #f9fafa;
+    /* bg-quility-light-bg (approx) */
+    --c-quility-border: #e5e7eb;
+    /* border-quility-border (approx) */
+    --c-quility-green: #115e59;
+    /* text-quility-dark-green (approx) */
+    --c-quility-text: #374151;
+    /* text-quility-dark-text (approx) */
+
+    /* Status Colors (Standard Fallbacks) */
+    --c-error-bg: #F8E9E8;
+    --c-error-border: #991b1b;
+    --c-error-text: #991b1b;
+
+    --c-success-bg: #f0fdf4;
+    --c-success-border: #bbf7d0;
+    --c-success-text: #166534;
+
+    --c-info-bg: #E8EDF6;
+    --c-info-border: #1849A9;
+    --c-info-text: #1849A9;
+
+    --c-warning-bg: #F8EFE6;
+    --c-warning-border: #934802;
+    --c-warning-text: #934802;
+}
+
+/* Base Component */
+.ds-alert {
+    border: 1px solid transparent;
+    border-radius: var(--alert-radius);
+    padding: 1rem;
+    text-align: left;
+    font-family: sans-serif;
+    width: fit-content;
+}
+
+/* Header Section */
+.ds-alert__header {
+    font-size: var(--alert-font-size);
+    /* text-xs */
+    font-weight: 700;
+    /* font-bold */
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    /* mb-2 */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* gap-2 */
+}
+
+/* Content Section */
+.ds-alert__content {
+    font-size: var(--alert-font-size);
+    /* text-xs */
+    line-height: 1.5;
+}
+
+/* --- List Styling Helpers (for your specific use case) --- */
+.ds-alert__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ds-alert__list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+    /* space-y-1.5 */
+}
+
+.ds-alert__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #6b7280;
+    /* quility-dark-grey */
+    flex-shrink: 0;
+}
+
+/* --- Variants (Types) --- */
+
+/* Type: INFO (Default/Quility Style) */
+.ds-alert--info {
+    background-color: var(--c-quility-bg);
+    border-color: var(--c-quility-border);
+}
+
+.ds-alert--info .ds-alert__header {
+    color: var(--c-info-text);
+}
+
+.ds-alert--info .ds-alert__content {
+    color: var(--c-quility-text);
+}
+
+/* Type: ERROR */
+.ds-alert--error {
+    background-color: var(--c-error-bg);
+    border-color: var(--c-error-border);
+}
+
+.ds-alert--info {
+    background-color: var(--c-info-bg);
+    border-color: var(--c-info-border);
+}
+
+.ds-alert--warning {
+    background-color: var(--c-warning-bg);
+    border-color: var(--c-warning-border);
+}
+
+.ds-alert--error .ds-alert__header,
+.ds-alert--error .ds-alert__content {
+    color: var(--c-error-text);
+}
+
+/* Type: SUCCESS */
+.ds-alert--success {
+    background-color: var(--c-success-bg);
+    border-color: var(--c-success-border);
+}
+
+.ds-alert--success .ds-alert__header,
+.ds-alert--success .ds-alert__content {
+    color: var(--c-success-text);
+}
