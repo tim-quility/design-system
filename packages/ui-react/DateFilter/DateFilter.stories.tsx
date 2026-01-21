@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import DateFilter from './DateFilter';
 
 const meta: Meta<typeof DateFilter> = {
-    title: 'UI/DateFilter',
+    title: 'React Components/UI/DateFilter',
     component: DateFilter,
     tags: ['autodocs'],
     argTypes: {

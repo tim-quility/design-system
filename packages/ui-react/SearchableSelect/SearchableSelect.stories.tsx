@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import SearchableSelect from './SearchableSelect';
 
 const meta: Meta<typeof SearchableSelect> = {
-    title: 'UI/SearchableSelect',
+    title: 'React Components/UI/SearchableSelect',
     component: SearchableSelect,
     tags: ['autodocs'],
     argTypes: {
@@ -13,7 +13,7 @@ const meta: Meta<typeof SearchableSelect> = {
     render: function Render(args) {
         const [{ value }, updateArgs] = useArgs();
 
-        function onChange(newValue) {
+        function onChange(newValue: any) {
             updateArgs({ value: newValue });
         }
 

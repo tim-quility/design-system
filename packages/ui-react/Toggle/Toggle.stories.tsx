@@ -4,7 +4,7 @@ import React from 'react';
 import Toggle from './Toggle';
 
 const meta: Meta<typeof Toggle> = {
-    title: 'UI/Toggle',
+    title: 'React Components/UI/Toggle',
     component: Toggle,
     parameters: {
         layout: 'centered',

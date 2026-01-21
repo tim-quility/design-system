@@ -1,0 +1,207 @@
+/* Checkbox.css */
+
+:root {
+    /* Brand Colors - Matching Vue Theme */
+    --cb-brand-500: #005851;
+    --cb-brand-50: #E6EEEE;
+
+    /* Gray Scale */
+    --cb-gray-900: #101828;
+    --cb-gray-500: #ADADAD;
+    --cb-gray-200: #E4E4E4;
+    --cb-gray-100: #F1F1F1;
+    --cb-white: #FFFFFF;
+
+    /* Error Colors */
+    --cb-error-500: #B42318;
+    --cb-error-50: #F8E9E8;
+
+    /* Font */
+    --cb-font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* --- Container --- */
+.cb-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    font-family: var(--cb-font-family);
+}
+
+/* Disabled State */
+.cb-container.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* --- Variant: Boxed --- */
+.cb-container.variant-boxed {
+    background: transparent;
+    padding: 12px 16px;
+    border-bottom: 1px solid transparent;
+}
+
+.cb-container.variant-boxed.checked {
+    background: var(--cb-gray-100);
+}
+
+/* --- Focus States --- */
+.cb-input:focus-visible+.cb-visual-wrapper {
+    outline: 2px solid var(--cb-brand-500);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.cb-container.error .cb-input:focus-visible+.cb-visual-wrapper {
+    outline-color: var(--cb-error-500);
+}
+
+/* --- Visual Wrapper --- */
+.cb-visual-wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+/* Hover Effect Ring */
+.cb-visual-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    /* Keep hover effect circular or change to 8px for square feel */
+    background: transparent;
+    transition: background 0.2s ease;
+    z-index: 0;
+}
+
+.cb-container:hover .cb-visual-wrapper::before {
+    background: var(--cb-brand-50);
+}
+
+.cb-container.error:hover .cb-visual-wrapper::before {
+    background: var(--cb-error-50);
+}
+
+.cb-container.disabled:hover .cb-visual-wrapper::before {
+    background: transparent;
+}
+
+/* --- The Checkbox Square --- */
+.cb-box {
+    width: 20px;
+    height: 18px;
+    border-radius: 4px;
+    /* Square with rounded corners */
+    border: 1.5px solid var(--cb-gray-500);
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* Checked State: Fills with color */
+.cb-container.checked .cb-box {
+    background: var(--cb-brand-500);
+    border-color: var(--cb-brand-500);
+}
+
+/* Error State */
+.cb-container.error .cb-box {
+    border-color: var(--cb-error-500);
+}
+
+.cb-container.error.checked .cb-box {
+    background: var(--cb-error-500);
+}
+
+/* Disabled State */
+.cb-container.disabled .cb-box {
+    background: var(--cb-gray-200);
+    border-color: var(--cb-gray-500);
+}
+
+/* --- The Checkmark SVG --- */
+.cb-checkmark {
+    width: 14px;
+    height: 14px;
+    color: var(--cb-white);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cb-container.checked .cb-checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cb-container.disabled .cb-checkmark {
+    color: var(--cb-gray-500);
+}
+
+/* --- Text Content --- */
+.cb-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.cb-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cb-gray-900);
+    line-height: 1.25;
+}
+
+.cb-container.checked .cb-label {
+    font-weight: 500;
+}
+
+.cb-description {
+    font-size: 12px;
+    color: var(--cb-gray-500);
+    line-height: 1.5;
+}
+
+.cb-container.error .cb-description {
+    color: var(--cb-error-500);
+}
+
+/* --- Right Element --- */
+.cb-right-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cb-gray-900);
+    transition: transform 0.3s ease;
+}
+
+.cb-container.checked .cb-right-element.rotate-on-check {
+    transform: rotate(180deg);
+}
+
+/* Utility to hide native input */
+.cb-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}

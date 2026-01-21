@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
 
 // Metadata configuration for Storybook
 const meta: Meta<typeof Button> = {
-  title: 'UI/Button',
+  title: 'React Components/UI/Button',
   component: Button,
   parameters: {
     layout: 'centered',

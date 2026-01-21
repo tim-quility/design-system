@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tabs from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
-    title: 'UI/Tabs',
+    title: 'React Components/UI/Tabs',
     component: Tabs,
     tags: ['autodocs'],
     argTypes: {
@@ -21,7 +21,7 @@ const defaultItems = [
 
 export const Default: Story = {
     args: {
-        items: defaultItems,
+        items: defaultItems as any,
     },
 };
 

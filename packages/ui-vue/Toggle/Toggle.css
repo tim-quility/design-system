@@ -1,0 +1,121 @@
+/* Toggle.css */
+
+:root {
+    --Toggle-Width: 44px;
+    --Toggle-Height: 24px;
+    --Thumb-Size: 20px;
+    --Thumb-Padding: 2px;
+
+    --Colors-Base-White: #FFFFFF;
+    --Colors-Gray-200: #E4E4E4;
+    --Colors-Gray-300: #D0D0D0;
+    --Colors-Gray-500: #ADADAD;
+    --Colors-Gray-600: #8D8D8D;
+    --Colors-Gray-700: #707070;
+    --Colors-Gray-900: #2F2F2F;
+
+    --Colors-Brand-50: #E6EEEE;
+    /* Hover Halo */
+    --Colors-Brand-500: #005851;
+    /* Active Color */
+
+    --Colors-Error-500: #B42318;
+    /* Error Color */
+}
+
+/* --- Container (Holds Label + Switch Row) --- */
+.toggle-root {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: sans-serif;
+}
+
+/* Label (Supporting Text) */
+.toggle-main-label {
+    color: var(--Colors-Gray-900);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 300px;
+}
+
+/* --- The Switch Row (Switch + Side Text) --- */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- The Switch Button (The Pill) --- */
+.toggle-switch {
+    position: relative;
+    width: var(--Toggle-Width);
+    height: var(--Toggle-Height);
+    background: var(--Colors-Gray-500);
+    border-radius: 9999px;
+    padding: var(--Thumb-Padding);
+    cursor: pointer;
+    transition: background-color 0.2s ease, outline 0.2s ease;
+    border: none;
+    box-sizing: border-box;
+    /* Ensures padding doesn't expand width */
+}
+
+/* 1. Checked State */
+.toggle-switch.is-checked {
+    background: var(--Colors-Brand-500);
+}
+
+/* 2. Error State (Overrides Brand Color) */
+.toggle-switch.is-error.is-checked {
+    background: var(--Colors-Error-500);
+}
+
+/* 3. Disabled State */
+.toggle-switch:disabled {
+    background: var(--Colors-Gray-300);
+    cursor: not-allowed;
+}
+
+/* 4. Hover State (Halo Effect) */
+.toggle-switch:not(:disabled):hover {
+    outline: 4px solid var(--Colors-Brand-50);
+}
+
+/* --- The Thumb (The Circle) --- */
+.toggle-thumb {
+    width: var(--Thumb-Size);
+    height: var(--Thumb-Size);
+    background: var(--Colors-Base-White);
+    border-radius: 50%;
+    position: absolute;
+    top: var(--Thumb-Padding);
+    left: var(--Thumb-Padding);
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumb Movement */
+.toggle-switch.is-checked .toggle-thumb {
+    /* Move right: Width (44) - Padding (2) - Thumb (20) - Padding (2) = 20px */
+    transform: translateX(20px);
+}
+
+/* Disabled Thumb Color */
+.toggle-switch:disabled .toggle-thumb {
+    background: var(--Colors-Gray-200);
+    box-shadow: none;
+}
+
+/* --- Side State Text (On/Off) --- */
+.toggle-side-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.5px;
+    color: var(--Colors-Gray-600);
+}
+
+.toggle-switch.is-checked+.toggle-side-text {
+    color: var(--Colors-Gray-700);
+}

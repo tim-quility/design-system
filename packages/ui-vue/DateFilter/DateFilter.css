@@ -1,0 +1,319 @@
+/* DateFilter.css */
+
+:root {
+    /* Brand Colors */
+    --df-brand-500: #005851;
+    --df-brand-100: #CCDEDC;
+    --df-white: #ffffff;
+
+    /* Gray Scale */
+    --df-gray-900: #2F2F2F;
+    --df-gray-800: #505050;
+    --df-gray-600: #8D8D8D;
+    --df-gray-500: #ADADAD;
+    --df-gray-200: #E4E4E4;
+    --df-gray-100: #F1F1F1;
+    --df-gray-50: #F8F8F8;
+
+    /* Status */
+    --df-error: #B42318;
+
+    /* Layout */
+    --df-radius: 6px;
+    --df-font: sans-serif;
+}
+
+/* --- Main Container --- */
+.df-container {
+    display: inline-flex;
+    flex-direction: column;
+    background: var(--df-white);
+    box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+    border-radius: var(--df-radius);
+    border: 1px solid var(--df-gray-100);
+    overflow: hidden;
+    font-family: var(--df-font);
+}
+
+.df-body {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* --- Sidebar Section --- */
+.df-sidebar {
+    width: 320px;
+    border-right: 1px solid var(--df-gray-100);
+    display: flex;
+    flex-direction: column;
+    background: var(--df-white);
+    padding-bottom: 8px;
+}
+
+.df-sidebar__header {
+    padding: 16px;
+    font-size: 14px;
+    color: var(--df-gray-900);
+}
+
+.df-sidebar__item {
+    height: 48px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.df-sidebar__item:hover {
+    background: var(--df-gray-50);
+}
+
+.df-sidebar__item.selected {
+    background: var(--df-gray-100);
+}
+
+/* Sidebar Radio Circle */
+.df-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--df-gray-500);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.df-sidebar__item.selected .df-radio {
+    border-color: var(--df-brand-500);
+}
+
+.df-radio__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--df-brand-500);
+    display: none;
+}
+
+.df-sidebar__item.selected .df-radio__dot {
+    display: block;
+}
+
+.df-sidebar__label {
+    font-size: 16px;
+    color: var(--df-gray-900);
+    /* Blackish */
+}
+
+/* --- Calendar Content Section --- */
+.df-content {
+    width: 408px;
+    display: flex;
+    flex-direction: column;
+    background: var(--df-white);
+}
+
+.df-content__header {
+    padding: 16px;
+    font-size: 14px;
+    color: var(--df-gray-900);
+}
+
+/* Inputs Row */
+.df-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px 16px;
+    gap: 8px;
+}
+
+.df-input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.df-input-label {
+    font-size: 12px;
+    color: var(--df-gray-900);
+    display: flex;
+    gap: 2px;
+}
+
+.df-input-label span {
+    color: var(--df-error);
+}
+
+.df-input-box {
+    height: 40px;
+    background: var(--df-gray-50);
+    border: 1.5px solid var(--df-gray-200);
+    border-radius: var(--df-radius);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--df-gray-600);
+    font-size: 14px;
+}
+
+.df-input-box--filled {
+    color: var(--df-gray-900);
+}
+
+.df-separator {
+    padding-top: 24px;
+    /* Align visually with input box */
+    color: var(--df-gray-900);
+}
+
+/* Month Navigation */
+.df-month-nav {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    justify-content: center;
+    gap: 8px;
+}
+
+.df-month-nav__title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--df-gray-900);
+    margin-right: auto;
+}
+
+.df-month-nav__arrow {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--df-gray-900);
+}
+
+/* Calendar Grid */
+.df-calendar {
+    padding: 0 12px 12px;
+}
+
+.df-calendar__row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    /* Gap between rows */
+}
+
+.df-day-cell {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--df-gray-800);
+    position: relative;
+    cursor: pointer;
+}
+
+.df-day-cell--header {
+    font-weight: 400;
+    color: var(--df-gray-800);
+}
+
+/* Day Cell Variants */
+.df-day-content {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    /* Sit above range background */
+}
+
+/* State: Today */
+.df-day-cell--today .df-day-content {
+    border: 1px solid var(--df-gray-900);
+}
+
+/* State: Selected (Start/End) */
+.df-day-cell--selected .df-day-content {
+    background: var(--df-brand-500);
+    color: var(--df-white);
+}
+
+/* State: In Range (Background bar) */
+.df-day-cell--range::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: -4px;
+    /* Bridge gap between cells */
+    right: -4px;
+    background: var(--df-brand-100);
+    z-index: 1;
+}
+
+/* Fix rounded corners for start/end of range bar */
+.df-day-cell--range-start::before {
+    left: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.df-day-cell--range-end::before {
+    right: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* --- Footer --- */
+.df-footer {
+    padding: 16px 12px;
+    border-top: 1px solid var(--df-gray-100);
+    /* Optional based on preference, removed in some views */
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.df-btn {
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.df-btn--secondary {
+    border: 2px solid var(--df-brand-500);
+    color: var(--df-brand-500);
+    background: transparent;
+}
+
+.df-btn--primary {
+    background: var(--df-brand-500);
+    color: var(--df-white);
+    border: none;
+}
+
+.df-btn--disabled {
+    background: var(--df-gray-200);
+    color: var(--df-gray-500);
+    cursor: not-allowed;
+    border: none;
+}

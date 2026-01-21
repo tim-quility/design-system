@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { HorizontalStepper, Step } from './HorizontalStepper';
 
@@ -14,7 +14,7 @@ const sampleSteps: Step[] = [
 ];
 
 const meta: Meta<typeof HorizontalStepper> = {
-  title: 'UI/HorizontalStepper',
+  title: 'React Components/UI/HorizontalStepper',
   component: HorizontalStepper,
   parameters: {
     layout: 'padded',

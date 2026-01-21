@@ -12,6 +12,9 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return mergeConfig(config, {
       plugins: [vue()],
+      server: {
+        cors: true,
+      },
     });
   },
 };

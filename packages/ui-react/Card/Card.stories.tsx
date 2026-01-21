@@ -3,7 +3,7 @@ import Card from './Card';
 import Icon from '../icon/Icon';
 
 const meta: Meta<typeof Card> = {
-    title: 'UI/Card',
+    title: 'React Components/UI/Card',
     component: Card,
     tags: ['autodocs'],
     argTypes: {

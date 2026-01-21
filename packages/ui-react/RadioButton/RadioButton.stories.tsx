@@ -3,7 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import RadioButton from './RadioButton';
 
 const meta: Meta<typeof RadioButton> = {
-    title: 'UI/RadioButton',
+    title: 'React Components/UI/RadioButton',
     component: RadioButton,
     tags: ['autodocs'],
     argTypes: {

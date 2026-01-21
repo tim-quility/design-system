@@ -5,7 +5,7 @@ import Modal from './Modal';
 import Button from '../Buttons/Button'; // Ensure this path is correct
 
 const meta: Meta<typeof Modal> = {
-    title: 'UI/Modal',
+    title: 'React Components/UI/Modal',
     component: Modal,
     parameters: {
         layout: 'fullscreen',

@@ -17,7 +17,8 @@
     "vue": "^3"
   },
   "dependencies": {
-    "@org/design-tokens": "workspace:*"
+    "@org/design-tokens": "workspace:*",
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@storybook/addon-links": "^8.6.15",

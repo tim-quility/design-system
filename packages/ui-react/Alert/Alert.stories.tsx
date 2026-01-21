@@ -3,7 +3,7 @@ import Alert from './Alert';
 import Icon from '../icon/Icon';
 
 const meta: Meta<typeof Alert> = {
-    title: 'UI/Alert',
+    title: 'React Components/UI/Alert',
     component: Alert,
     tags: ['autodocs'],
     argTypes: {

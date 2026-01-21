@@ -1,0 +1,175 @@
+/* Tabs.css */
+
+:root {
+    /* Color Palette extracted from snippets */
+    --tab-color-brand-500: #005851;
+    --tab-color-gray-900: #2F2F2F;
+    --tab-color-gray-300: #D0D0D0;
+    --tab-color-gray-200: #E4E4E4;
+    --tab-color-gray-100: #F1F1F1;
+    --tab-font-family: sans-serif;
+}
+
+/* --- Container --- */
+.tabs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: var(--tab-font-family);
+}
+
+.tabs-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* Removes default button styling */
+    border-bottom: 1px solid var(--tab-color-gray-200);
+}
+
+/* --- Base Tab Item --- */
+.tab-item {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* Center horizontally like snippets */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: var(--tab-font-family);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+/* Inner text wrapper to match structure */
+.tab-content-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 16px;
+    /* standard padding from snippets */
+    height: 30px;
+    /* fixed height from line snippets */
+
+    /* Text Styles */
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--tab-color-gray-900);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* Focus State (Shared) */
+.tab-item:focus-visible {
+    outline: 2px solid var(--tab-color-brand-500);
+    outline-offset: -2px;
+    z-index: 10;
+}
+
+/* ============================
+   VARIANT: LINE
+   ============================ */
+
+.tab-item.variant-line {
+    padding-top: 8px;
+    gap: 8px;
+}
+
+/* The Bottom Bar (Line) */
+.tab-item.variant-line::after {
+    content: '';
+    align-self: stretch;
+    height: 2px;
+    width: 100%;
+    background: var(--tab-color-gray-100);
+    /* Default line color */
+    display: block;
+}
+
+/* Line Hover */
+.tab-item.variant-line:hover {
+    background: var(--tab-color-gray-100);
+}
+
+.tab-item.variant-line:hover::after {
+    background: var(--tab-color-gray-300);
+}
+
+/* Line Active */
+.tab-item.variant-line.active .tab-content-wrapper {
+    color: var(--tab-color-brand-500);
+    font-weight: 700;
+}
+
+.tab-item.variant-line.active::after {
+    background: var(--tab-color-brand-500);
+}
+
+/* ============================
+   VARIANT: CONTAINED
+   ============================ */
+
+.tab-item.variant-contained {
+    height: 100%;
+    min-height: 48px;
+    /* Approximate from snippets */
+}
+
+.tab-item.variant-contained .tab-content-wrapper {
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    flex: 1 1 0;
+}
+
+/* Contained Hover */
+.tab-item.variant-contained:hover {
+    background: var(--tab-color-gray-100);
+}
+
+/* Contained Active */
+.tab-item.variant-contained.active {
+    background: var(--tab-color-gray-100);
+    justify-content: flex-start;
+}
+
+/* Top Green Line for Contained Active */
+.tab-item.variant-contained.active::before {
+    content: '';
+    align-self: stretch;
+    height: 2px;
+    background: var(--tab-color-brand-500);
+    width: 100%;
+    display: block;
+}
+
+.tab-item.variant-contained.active .tab-content-wrapper {
+    color: var(--tab-color-brand-500);
+    font-weight: 700;
+    padding-top: 10px;
+    /* Adjusting for the 2px border added above */
+}
+
+/* --- Panel Content --- */
+.tab-panel {
+    padding: 16px 0;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

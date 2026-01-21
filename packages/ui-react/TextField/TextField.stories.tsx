@@ -4,7 +4,7 @@ import React from 'react';
 import TextField from './TextField';
 
 const meta: Meta<typeof TextField> = {
-    title: 'UI/TextField',
+    title: 'React Components/UI/TextField',
     component: TextField,
     parameters: {
         layout: 'centered',
