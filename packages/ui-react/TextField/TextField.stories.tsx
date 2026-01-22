@@ -1,94 +1,67 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
-import React from 'react';
 import TextField from './TextField';
 
 const meta: Meta<typeof TextField> = {
     title: 'React Components/UI/TextField',
     component: TextField,
-    parameters: {
-        layout: 'centered',
-    },
     tags: ['autodocs'],
     argTypes: {
         label: { control: 'text' },
         hint: { control: 'text' },
-        error: { control: 'text', description: 'Error message string or boolean' },
+        error: { control: 'text' }, // Allows testing error string
         multiline: { control: 'boolean' },
         disabled: { control: 'boolean' },
+        readOnly: { control: 'boolean' },
         required: { control: 'boolean' },
-        prefix: { control: 'text' },
-        suffix: { control: 'text' },
+        type: {
+            control: 'select',
+            options: ['text', 'password', 'email', 'number', 'tel', 'url']
+        },
     },
 };
 
 export default meta;
 type Story = StoryObj<typeof TextField>;
 
-const Template: Story['render'] = (args) => {
-    const [{ value }, updateArgs] = useArgs();
-
-    const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        updateArgs({ value: e.target.value });
-    };
-
-    return <TextField {...args} value={value} onChange={onChange} />;
-};
-
 export const Default: Story = {
     args: {
-        label: 'Email Address',
-        placeholder: 'example@email.com',
-        hint: 'We will never share your email.',
-        value: '',
+        label: 'Standard Input',
+        hint: 'This is a helper text',
+        placeholder: 'Placeholder text...'
     },
-    render: Template,
 };
 
-export const Multiline: Story = {
+export const Password: Story = {
     args: {
-        label: 'Bio',
-        placeholder: 'Tell us about yourself...',
-        multiline: true,
-        rows: 4,
-        value: '',
+        label: 'Password',
+        type: 'password',
+        hint: 'Your secure password',
+        placeholder: '••••••••'
     },
-    render: Template,
 };
 
 export const WithError: Story = {
     args: {
-        label: 'Username',
-        value: 'invaliduser',
-        error: 'This username is already taken',
+        label: 'Error State',
+        error: 'Invalid email address',
+        value: 'invalid-email',
     },
-    render: Template,
 };
 
-export const WithPrefixAndSuffix: Story = {
+export const Multiline: Story = {
+    args: {
+        label: 'Biography',
+        multiline: true,
+        hint: 'Tell us about yourself',
+        rows: 4
+    },
+};
+
+export const WithAffix: Story = {
     args: {
         label: 'Price',
-        value: '0.00',
         prefix: '$',
         suffix: 'USD',
+        type: 'number'
     },
-    render: Template,
-};
-
-export const Disabled: Story = {
-    args: {
-        label: 'API Key',
-        value: 'sk_test_123456789',
-        disabled: true,
-    },
-    render: Template,
-};
-
-export const ReadOnly: Story = {
-    args: {
-        label: 'System ID',
-        value: 'SYS-1024',
-        readOnly: true,
-    },
-    render: Template,
 };

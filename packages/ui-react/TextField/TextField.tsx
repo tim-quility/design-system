@@ -56,6 +56,7 @@ const TextField: React.FC<TextFieldProps> = ({
   className,
   onFocus,
   onBlur,
+  type = 'text',
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -102,6 +103,7 @@ const TextField: React.FC<TextFieldProps> = ({
           required={required}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          type={multiline ? undefined : type}
           // We cast props to 'any' here.
           // Why? TypeScript gets confused trying to spread InputProps onto a Textarea and vice versa.
           // Since we are controlling 'multiline', we trust the consumer to pass valid props.

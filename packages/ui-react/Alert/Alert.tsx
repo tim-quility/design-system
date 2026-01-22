@@ -8,14 +8,22 @@ import './Alert.css';
  * @param {ReactNode} icon - Optional icon component (e.g. <Icon name="..." />)
  * @param {ReactNode} children - The main content
  */
-const Alert = ({ 
-    type = 'info', 
-    title, 
-    icon, 
-    children, 
-    className = '' 
+interface AlertProps {
+    type?: 'info' | 'error' | 'success';
+    title: string;
+    icon?: React.ReactNode;
+    children: React.ReactNode;
+    className?: string;
+}
+
+const Alert: React.FC<AlertProps> = ({
+    type = 'info',
+    title,
+    icon,
+    children,
+    className = ''
 }) => {
-    
+
     // Construct class names dynamically based on type
     const rootClass = `ds-alert ds-alert--${type} ${className}`;
 
@@ -26,7 +34,7 @@ const Alert = ({
                 {icon && <span className="ds-alert__icon">{icon}</span>}
                 {title}
             </div>
-            
+
             <div className="ds-alert__content">
                 {children}
             </div>

@@ -2,18 +2,23 @@
 
 :root {
   /* --- Design Tokens --- */
-  
+
   /* Brand Color (Replaces 'text-quility' / 'bg-quility') */
   /* TODO: Replace #2563EB with your actual Quility Brand Hex Code */
-  --hs-color-brand: #005851; 
-  --hs-color-brand-faint: rgba(37, 99, 235, 0.3); /* Ring color */
+  --hs-color-brand: #005851;
+  --hs-color-brand-faint: rgba(37, 99, 235, 0.3);
+  /* Ring color */
 
   /* Neutral Colors (Replaces gray-200, gray-300, etc) */
-  --hs-color-neutral-100: #E5E7EB; /* Bar background */
-  --hs-color-neutral-200: #D1D5DB; /* Empty circle border */
-  --hs-color-neutral-300: #9CA3AF; /* Upcoming label */
-  --hs-color-neutral-400: #6B7280; /* Upcoming description */
-  
+  --hs-color-neutral-100: #E5E7EB;
+  /* Bar background */
+  --hs-color-neutral-200: #D1D5DB;
+  /* Empty circle border */
+  --hs-color-neutral-300: #9CA3AF;
+  /* Upcoming label */
+  --hs-color-neutral-400: #6B7280;
+  /* Upcoming description */
+
   /* Transitions */
   --hs-transition: all 0.5s ease-in-out;
 }
@@ -22,21 +27,24 @@
 
 .hs-container {
   width: 100%;
-  margin-bottom: 2rem; /* mb-8 */
+  margin-bottom: 2rem;
+  /* mb-8 */
   box-sizing: border-box;
 }
 
 .hs-wrapper {
   display: flex;
   width: 100%;
-  gap: 1rem; /* gap-4 */
+  gap: 1rem;
+  /* gap-4 */
 }
 
 .hs-step-item {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* gap-2 */
+  gap: 0.5rem;
+  /* gap-2 */
   position: relative;
   /* 'group' logic from tailwind handled via parent selector */
 }
@@ -44,9 +52,11 @@
 /* --- The Top Bar --- */
 
 .hs-bar {
-  height: 0.25rem; /* h-1 */
+  height: 0.25rem;
+  /* h-1 */
   width: 100%;
-  border-radius: 9999px; /* rounded-full */
+  border-radius: 9999px;
+  /* rounded-full */
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -55,8 +65,10 @@
 .hs-content {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem; /* gap-1 */
-  padding-right: 1rem; /* pr-4 */
+  gap: 0.25rem;
+  /* gap-1 */
+  padding-right: 1rem;
+  /* pr-4 */
 }
 
 /* --- Label Row --- */
@@ -64,12 +76,15 @@
 .hs-label-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* gap-2 */
+  gap: 0.5rem;
+  /* gap-2 */
 }
 
 .hs-indicator-slot {
-  width: 1rem; /* w-4 */
-  height: 1rem; /* h-4 */
+  width: 1rem;
+  /* w-4 */
+  height: 1rem;
+  /* h-4 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,8 +92,10 @@
 }
 
 .hs-label {
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 700; /* font-bold */
+  font-size: 0.875rem;
+  /* text-sm */
+  font-weight: 700;
+  /* font-bold */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -88,12 +105,15 @@
 /* --- Description Row --- */
 
 .hs-description-row {
-  padding-left: 1.5rem; /* pl-6 */
+  padding-left: 1.5rem;
+  /* pl-6 */
 }
 
 .hs-description {
-  font-size: 0.75rem; /* text-xs */
-  font-weight: 500; /* font-medium */
+  font-size: 0.75rem;
+  /* text-xs */
+  font-weight: 500;
+  /* font-medium */
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -104,11 +124,13 @@
 /* --- Indicators (Dot/Circle) --- */
 
 .hs-dot-active {
-  width: 0.625rem; /* 2.5 units */
+  width: 0.625rem;
+  /* 2.5 units */
   height: 0.625rem;
   border-radius: 50%;
   background-color: var(--hs-color-brand);
-  box-shadow: 0 0 0 2px var(--hs-color-brand-faint); /* ring-2 */
+  box-shadow: 0 0 0 2px var(--hs-color-brand-faint);
+  /* ring-2 */
 }
 
 .hs-dot-empty {
@@ -130,40 +152,50 @@
 .hs-step-item[data-status="upcoming"] .hs-bar {
   background-color: var(--hs-color-neutral-100);
 }
+
 .hs-step-item[data-status="upcoming"] .hs-label {
-  color: var(--hs-color-neutral-300); /* text-gray-400 */
+  color: var(--hs-color-neutral-300);
+  /* text-gray-400 */
 }
+
 .hs-step-item[data-status="upcoming"] .hs-description {
-  color: var(--hs-color-neutral-200); /* text-gray-300 */
+  color: var(--hs-color-neutral-200);
+  /* text-gray-300 */
 }
 
 /* 2. CURRENT State */
 .hs-step-item[data-status="current"] .hs-bar {
   background-color: var(--hs-color-brand);
 }
+
 .hs-step-item[data-status="current"] .hs-label {
   color: var(--hs-color-brand);
 }
+
 .hs-step-item[data-status="current"] .hs-description {
-  color: var(--hs-color-neutral-400); /* Dark grey */
+  color: var(--hs-color-neutral-400);
+  /* Dark grey */
 }
 
 /* 3. COMPLETE State */
 .hs-step-item[data-status="complete"] .hs-bar {
   background-color: var(--hs-color-brand);
 }
+
 .hs-step-item[data-status="complete"] .hs-indicator-slot {
-  color: var(--hs-color-brand); /* Icons inherit currentColor */
+  color: var(--hs-color-brand);
+  /* Icons inherit currentColor */
 }
+
 .hs-step-item[data-status="complete"] .hs-label {
   color: var(--hs-color-brand);
 }
+
 .hs-step-item[data-status="complete"] .hs-description {
-  color: var(--hs-color-neutral-400); /* Dark grey */
+  color: var(--hs-color-neutral-400);
+  /* Dark grey */
 }
 
 
 
-Implement this component, checking all props and variants. i need all colors and styling to match the design system.
-it needs to be put into packages/ui-react/select as a react component with a self contained css file (no injection)
-@https://www.figma.com/design/3ibGvnC8QoMiDhV3u9j5ER/Quility-Platform-Suite-Design-System?node-id=6866-25943&m=dev
+/* End of file */
